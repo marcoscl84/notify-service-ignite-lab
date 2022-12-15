@@ -6,6 +6,9 @@ import { CreateNotificationBady } from './create-notification-body';
 
 @Controller('notifications')
 export class AppController {
+  getHello(): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(private readonly prisma: PrismaService) {}
 
   @Get()
