@@ -1,4 +1,3 @@
-import { Injectable } from '@nestjs/common';
 import { Content } from '../entities/content';
 import { Notification } from '../entities/notification';
 
@@ -24,8 +23,8 @@ export class SendNotificationUseCase {
       category,
     });
 
-    // depois de criada a notificação, persistir no banco
-
-    return { notification };
+    return {
+      notification,
+    };
   }
 }
