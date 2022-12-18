@@ -1,31 +1,24 @@
 import { SendNotificationUseCase } from './send-notification-useCase';
-import { Notification } from '../entities/notification';
 
-// simula uma tabela no banco
-let notifications: Notification[] = [];
-
-// insere novo dado na pseudo tabela
-const notificationsRepository = {
-  async create(notification: Notification) {
-    console.log(notification);
-    notifications.push(notification);
-  },
-};
+import { InMemoryNotificationsRepository } from '../../../test/repositories/in-memory-notifications-repository';
 
 describe('Send notification', () => {
   it('should be able to send a notification', async () => {
+    const notificationsRepository = new InMemoryNotificationsRepository();
     const sendNotification = new SendNotificationUseCase(
       notificationsRepository,
     );
 
-    /* const { notification } = */ await sendNotification.execute({
+    const { notification } = await sendNotification.execute({
       category: 'social',
       content: 'This is a notification',
       recipientId: 'example-recipient-id',
     });
 
-    console.log(notifications);
-    expect(notifications).toHaveLength(1);
+    // console.log(notificationsRepository.notifications);
+
+    expect(notificationsRepository.notifications).toHaveLength(1);
+    expect(notificationsRepository.notifications[0]).toEqual(notification);
     // expect(notification).toBeTruthy();
   });
 });

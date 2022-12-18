@@ -1,0 +1,13 @@
+import { NotificationsRepository } from '../../src/app/repository/notifications-repository';
+import { Notification } from '../../src/app/entities/notification';
+
+// insere novo dado na pseudo tabela
+export class InMemoryNotificationsRepository
+  implements NotificationsRepository
+{
+  public notifications: Notification[] = [];
+
+  async create(notification: Notification) {
+    this.notifications.push(notification);
+  }
+}
