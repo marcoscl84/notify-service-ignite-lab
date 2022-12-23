@@ -1,5 +1,5 @@
-import { NotificationsRepository } from '../../src/app/repository/notifications-repository';
-import { Notification } from '../../src/app/entities/notification';
+import { NotificationsRepository } from '@app/repository/notifications-repository';
+import { Notification } from '@app/entities/notification';
 
 // insere novo dado na pseudo tabela
 export class InMemoryNotificationsRepository
