@@ -5,9 +5,17 @@ import { Notification } from '@app/entities/notification';
 export class InMemoryNotificationsRepository
   implements NotificationsRepository
 {
+
   public notifications: Notification[] = [];
 
   async create(notification: Notification) {
     this.notifications.push(notification);
+  }
+
+  findById(notification: string): Promise<Notification> {
+    throw new Error('Method not implemented.');
+  }
+  save(notification: Notification): Promise<void> {
+    throw new Error('Method not implemented.');
   }
 }
