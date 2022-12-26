@@ -3,6 +3,7 @@ import { InMemoryNotificationRepository } from '../../../test/repositories/in-me
 import { CancelNotificationUseCase } from './cancel-notification';
 import { Notification } from '@app/entities/notification';
 import { NotificationNotFound } from './errors/notification-not-found';
+import { MakeNotification } from '@test/factories/notification-factory';
 
 describe('Cancel notification', () => {
   it('should be able to cancel a notification', async () => {
@@ -11,11 +12,7 @@ describe('Cancel notification', () => {
       notificationsRepository,
     );
 
-    const notification = new Notification({
-      category: 'social',
-      content: new Content('Nova msg'),
-      recipientId: 'ex-rec-id',
-    });
+    const notification = MakeNotification();
 
     await notificationsRepository.create(notification);
 
