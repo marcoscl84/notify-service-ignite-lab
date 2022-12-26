@@ -2,9 +2,7 @@ import { NotificationsRepository } from '@app/repository/notifications-repositor
 import { Notification } from '@app/entities/notification';
 
 // insere novo dado na pseudo tabela
-export class InMemoryNotificationsRepository
-  implements NotificationsRepository
-{
+export class InMemoryNotificationRepository implements NotificationsRepository {
   public notifications: Notification[] = [];
 
   async findById(notificationId: string): Promise<Notification | null> {
@@ -17,6 +15,17 @@ export class InMemoryNotificationsRepository
     }
 
     return notification;
+  }
+
+  async findManyByRecipientId(recipientId: string): Promise<Notification[]> {
+    return this.notifications.filter(
+      (notification) => notification.recipientId === recipientId,
+    );
+  }
+  async countManyByRecipientId(recipientId: string): Promise<number> {
+    return this.notifications.filter(
+      (notification) => notification.recipientId === recipientId,
+    ).length;
   }
 
   async create(notification: Notification) {

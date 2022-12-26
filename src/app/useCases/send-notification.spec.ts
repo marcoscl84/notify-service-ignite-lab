@@ -1,10 +1,10 @@
 import { SendNotificationUseCase } from './send-notification';
 
-import { InMemoryNotificationsRepository } from '../../../test/repositories/in-memory-notifications-repository';
+import { InMemoryNotificationRepository } from '../../../test/repositories/in-memory-notifications-repository';
 
 describe('Send notification', () => {
   it('should be able to send a notification', async () => {
-    const notificationsRepository = new InMemoryNotificationsRepository();
+    const notificationsRepository = new InMemoryNotificationRepository();
     const sendNotification = new SendNotificationUseCase(
       notificationsRepository,
     );

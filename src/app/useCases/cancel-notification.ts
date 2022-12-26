@@ -3,10 +3,10 @@ import { NotificationsRepository } from '../repository/notifications-repository'
 import { NotificationNotFound } from './errors/notification-not-found';
 
 interface CancelNotificationRequest {
-  notificationId: string
+  notificationId: string;
 }
 
-type CancelNotificationResponse = void
+type CancelNotificationResponse = void;
 
 @Injectable()
 export class CancelNotificationUseCase {
@@ -17,14 +17,16 @@ export class CancelNotificationUseCase {
   ): Promise<CancelNotificationResponse> {
     const { notificationId } = request;
 
-    const notification = await this.notificationsRepository.findById(notificationId)
+    const notification = await this.notificationsRepository.findById(
+      notificationId,
+    );
 
-    if (!notification){
-        throw new NotificationNotFound()
+    if (!notification) {
+      throw new NotificationNotFound();
     }
 
-    notification.cancel()
+    notification.cancel();
 
-    await this.notificationsRepository.save(notification)
+    await this.notificationsRepository.save(notification);
   }
 }

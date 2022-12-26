@@ -1,12 +1,12 @@
 import { Content } from '@app/entities/content';
-import { InMemoryNotificationsRepository } from '../../../test/repositories/in-memory-notifications-repository';
+import { InMemoryNotificationRepository } from '../../../test/repositories/in-memory-notifications-repository';
 import { CancelNotificationUseCase } from './cancel-notification';
 import { Notification } from '@app/entities/notification';
 import { NotificationNotFound } from './errors/notification-not-found';
 
 describe('Cancel notification', () => {
   it('should be able to cancel a notification', async () => {
-    const notificationsRepository = new InMemoryNotificationsRepository();
+    const notificationsRepository = new InMemoryNotificationRepository();
     const cancelNotification = new CancelNotificationUseCase(
       notificationsRepository,
     );
@@ -30,7 +30,7 @@ describe('Cancel notification', () => {
   });
 
   it('Should not be able to cancel a notification when it does not exist', async () => {
-    const notificationsRepository = new InMemoryNotificationsRepository();
+    const notificationsRepository = new InMemoryNotificationRepository();
     const cancelNotification = new CancelNotificationUseCase(
       notificationsRepository,
     );
