@@ -21,7 +21,7 @@ describe('Unread notification', () => {
     // insere no banco
     await notificationsRepository.create(notification);
 
-    // marca como lida
+    // marca como lida.
     await unreadNotification.execute({
       notificationId: notification.id,
     });
