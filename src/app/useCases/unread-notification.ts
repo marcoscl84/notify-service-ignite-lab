@@ -30,4 +30,3 @@ export class UnreadNotificationUseCase {
     await this.notificationsRepository.save(notification);
   }
 }
-//
