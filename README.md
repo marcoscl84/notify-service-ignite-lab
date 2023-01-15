@@ -2,7 +2,7 @@
 
 Projeto Ignite Lab da Rocketseat
 
-Este projeto teve como objetivo criar um microsserviço de notificações, utilizando as tecnologias NestJS e Prisma
+Este projeto teve como objetivo criar um microsserviço de notificações, utilizando as tecnologias NestJS e Prisma.
 
 Aula 1: Fundamentos do Nest.js & Prisma
 
