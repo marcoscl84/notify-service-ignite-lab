@@ -1,4 +1,4 @@
-import { MessagingModule } from '@infra/messaging/kafka/messaging.module';
+import { MessagingModule } from '@infra/messaging/messaging.module';
 import { Module } from '@nestjs/common';
 
 import { DatabaseModule } from './infra/database/database.module';
